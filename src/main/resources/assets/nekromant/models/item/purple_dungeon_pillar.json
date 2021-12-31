@@ -1,8 +1,9 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_column",
   "textures": {
-    "all": "nekromant:blocks/purple_dungeon_pillar"
+    "end": "nekromant:blocks/purple_dungeon_pillar_top",
+    "side": "nekromant:blocks/purple_dungeon_pillar"
+  }
 
   }
 
-}

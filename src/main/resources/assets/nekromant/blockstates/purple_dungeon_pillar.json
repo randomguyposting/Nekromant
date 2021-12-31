@@ -1,16 +1,7 @@
 {
-  "variants": {
-    "axis=x": {
-      "model": "nekromant:block/purple_dungeon_pillar",
-      "x": 90,
-      "y": 90
-    },
-    "axis=y": {
-      "model": "nekromant:block/purple_dungeon_pillar"
-    },
-    "axis=z": {
-      "model": "nekromant:block/purple_dungeon_pillar",
-      "x": 90
-    }
-  }
+
+"variants": {"": {"model": "nekromant:block/purple_dungeon_pillar"}
+
+}
+
 }

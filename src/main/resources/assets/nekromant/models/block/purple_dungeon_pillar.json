@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "nekromant:block/purple_dungeon_pillar_top",
-    "side": "nekromant:block/purple_dungeon_pillar"
+    "end": "nekromant:blocks/purple_dungeon_pillar_top",
+    "side": "nekromant:blocks/purple_dungeon_pillar"
   }
 }
