@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "nekromant:blocks/purple_dungeon_bricks"
+
+  }
+
+}
