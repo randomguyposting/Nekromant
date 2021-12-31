@@ -16,6 +16,6 @@ public class UGItems {
 
     public static final Rarity FORGOTTEN = Rarity.create("forgotten", ChatFormatting.GREEN);
 
-    public static final RegistryObject<BlockItem> NEKROSTEIN = ITEMS.register("nekrostein", () -> new BlockItem(UGBlocks.NEKROSTEIN.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+    public static final RegistryObject<BlockItem> PURPLE_CHISELED_DUNGEON_BRICKS = ITEMS.register("purple_chiseled_dungeon_bricks", () -> new BlockItem(UGBlocks.PURPLE_CHISELED_DUNGEON_BRICKS.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
 }
 

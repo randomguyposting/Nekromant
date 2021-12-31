@@ -28,5 +28,5 @@ import Nekro.nekromant.Nekromant;
 public class UGBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Nekromant.MODID);
 
-    public static final RegistryObject<Block> NEKROSTEIN = BLOCKS.register("nekrostein", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> PURPLE_CHISELED_DUNGEON_BRICKS = BLOCKS.register("purple_chiseled_dungeon_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 }
