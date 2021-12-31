@@ -1,0 +1,8 @@
+{
+  "block": "block/cube_all",
+  "textures": {
+    "all": "nekromant:blocks/nekrostein"
+
+  }
+
+}
