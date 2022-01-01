@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nekromant:block/purple_dungeon_bricks_slab"
+    },
+    "type=double": {
+      "model": "nekromant:block/purple_dungeon_bricks"
+    },
+    "type=top": {
+      "model": "nekromant:block/purple_dungeon_bricks_slab_top"
+    }
+  }
+}
