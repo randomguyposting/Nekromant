@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "nekromant:purple_dungeon_bricks"
+    }
+  },
+  "result": {
+    "item": "nekromant:purple_dungeon_bricks_slab",
+    "count": 6
+  }
+}

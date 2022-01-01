@@ -19,5 +19,5 @@ public class NeBlocks {
     public static final RegistryObject<Block> PURPLE_DUNGEON_PILLAR = BLOCKS.register("purple_dungeon_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_SLAB = BLOCKS.register("purple_dungeon_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_STAIRS = BLOCKS.register("purple_dungeon_bricks_stairs", () -> new StairBlock(() -> PURPLE_DUNGEON_BRICKS.get().defaultBlockState() ,BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
-
+    public static final RegistryObject<Block> PURPLE_CHISELED_DUNGEON_BRICKS_SLAB = BLOCKS.register("purple_chiseled_dungeon_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
 }
