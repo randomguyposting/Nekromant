@@ -4,9 +4,12 @@
   "block.nekromant.purple_dungeon_pillar": "Purple Dungeon Pillar",
   "block.nekromant.purple_dungeon_bricks": "Purple Dungeon Bricks",
   "block.nekromant.purple_cracked_dungeon_bricks": "Purple Cracked Dungeon Bricks",
-  "block.nekromant.purple_dungeon_bricks_slab": "Purple Dungeon Bricks Slab",
-  "block.nekromant.purple_chiseled_dungeon_bricks_slab": "Purple Chiseled Dungeon Bricks Slab",
-  "block.nekromant.purple_dungeon_bricks_stairs": "Purple Dungeon Bricks Stairs",
+  "block.nekromant.purple_dungeon_bricks_slab": "Purple Dungeon Brick Slab",
+  "block.nekromant.purple_chiseled_dungeon_bricks_slab": "Purple Chiseled Dungeon Brick Slab",
+  "block.nekromant.purple_dungeon_bricks_stairs": "Purple Dungeon Brick Stair",
+  "block.nekromant.purple_dungeon_bricks_fence": "Purple Dungeon Brick Wall",
+
+
   "itemGroup.NekromantBlocks": "Nekromant Blocks"
 
 }
