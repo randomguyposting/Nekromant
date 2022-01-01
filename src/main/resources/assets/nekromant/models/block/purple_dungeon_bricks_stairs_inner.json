@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "nekromant:blocks/purple_dungeon_bricks",
+    "top": "nekromant:blocks/purple_dungeon_bricks",
+    "side": "nekromant:blocks/purple_dungeon_bricks"
+  }
+}
