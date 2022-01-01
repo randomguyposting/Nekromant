@@ -19,5 +19,8 @@ public class NeItems {
     public static final RegistryObject<BlockItem> PURPLE_DUNGEON_BRICKS_SLAB = ITEMS.register("purple_dungeon_bricks_slab", () -> new BlockItem(NeBlocks.PURPLE_DUNGEON_BRICKS_SLAB.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> PURPLE_CHISELED_DUNGEON_BRICKS_SLAB = ITEMS.register("purple_chiseled_dungeon_bricks_slab", () -> new BlockItem(NeBlocks.PURPLE_CHISELED_DUNGEON_BRICKS_SLAB.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> PURPLE_DUNGEON_BRICKS_STAIRS = ITEMS.register("purple_dungeon_bricks_stairs", () -> new BlockItem(NeBlocks.PURPLE_DUNGEON_BRICKS_STAIRS.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
+    public static final RegistryObject<BlockItem> PURPLE_DUNGEON_BRICKS_FENCE = ITEMS.register("purple_dungeon_bricks_fence", () -> new BlockItem(NeBlocks.PURPLE_DUNGEON_BRICKS_FENCE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
+
+
 }
 

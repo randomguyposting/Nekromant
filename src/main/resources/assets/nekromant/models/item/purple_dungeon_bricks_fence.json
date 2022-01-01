@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "nekromant:blocks/purple_dungeon_bricks"
+  }
+}
