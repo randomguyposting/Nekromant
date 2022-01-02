@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "nekromant:block/blood_lantern"
+    },
+    "hanging=true": {
+      "model": "nekromant:block/blood_lantern_hanging"
+    }
+  }
+}

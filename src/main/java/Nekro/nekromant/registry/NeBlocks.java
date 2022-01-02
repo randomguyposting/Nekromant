@@ -12,6 +12,7 @@ import Nekro.nekromant.Nekromant;
 public class NeBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Nekromant.MODID);
 
+    //purple dungeon bricks
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS = BLOCKS.register("purple_dungeon_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PURPLE_CHISELED_DUNGEON_BRICKS = BLOCKS.register("purple_chiseled_dungeon_bricks", () -> new Block(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_CRACKED_DUNGEON_BRICKS = BLOCKS.register("purple_cracked_dungeon_bricks", () -> new Block(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
@@ -21,5 +22,8 @@ public class NeBlocks {
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_STAIRS = BLOCKS.register("purple_dungeon_bricks_stairs", () -> new StairBlock(() -> PURPLE_DUNGEON_BRICKS.get().defaultBlockState() ,BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_CHISELED_DUNGEON_BRICKS_SLAB = BLOCKS.register("purple_chiseled_dungeon_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_FENCE = BLOCKS.register("purple_dungeon_bricks_fence", () -> new WallBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
+
+    //dungeon misc blocks
+    public static final RegistryObject<Block> BLOOD_LANTERN = BLOCKS.register("blood_lantern", () -> new LanternBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_RED).strength(0.5f, 4.0f).sound(SoundType.LANTERN).lightLevel((state) -> 8)));
 
 }
