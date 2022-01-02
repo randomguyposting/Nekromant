@@ -13,4 +13,13 @@ public class NeCreativeModeTab {
         }
     };
 
+    public static final CreativeModeTab NEKROMANT_ITEMS = new CreativeModeTab("NekromantItems") {
+
+
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(NeItems.MERCURY.get());
+        }
+    };
+
 }

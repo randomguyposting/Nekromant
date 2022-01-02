@@ -8,8 +8,11 @@
   "block.nekromant.purple_chiseled_dungeon_bricks_slab": "Purple Chiseled Dungeon Brick Slab",
   "block.nekromant.purple_dungeon_bricks_stairs": "Purple Dungeon Brick Stair",
   "block.nekromant.purple_dungeon_bricks_fence": "Purple Dungeon Brick Wall",
+  "block.nekromant.mercury_ore": "Mercury Ore",
+  "item.nekromant.mercury": "Mercury",
+
   "block.nekromant.blood_lantern" : "Blood Lantern",
 
-  "itemGroup.NekromantBlocks": "Nekromant Blocks"
-
+  "itemGroup.NekromantBlocks": "Nekromant Blocks",
+  "itemGroup.NekromantItems": "Nekromant Items"
 }
