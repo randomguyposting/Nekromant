@@ -1,5 +1,6 @@
 package Nekro.nekromant.registry;
 
+import Nekro.nekromant.blocks.BloodCandle;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -26,5 +27,6 @@ public class NeBlocks {
 
     //dungeon misc blocks
     public static final RegistryObject<Block> BLOOD_LANTERN = BLOCKS.register("blood_lantern", () -> new LanternBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_RED).strength(0.5f, 4.0f).sound(SoundType.LANTERN).lightLevel((state) -> 8)));
+    public static final RegistryObject<Block> BLOOD_CANDLE_BLACK = BLOCKS.register("blood_candle_black", () -> new BloodCandle(BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.SAND).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(CandleBlock.LIGHT_EMISSION)));
 
 }

@@ -39,7 +39,8 @@ public class Nekromant
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         DeferredRegister<?>[] registers = {
                 NeBlocks.BLOCKS,
-                NeItems.ITEMS
+                NeItems.ITEMS,
+                NeParticles.PARTICLES
 
         };
 

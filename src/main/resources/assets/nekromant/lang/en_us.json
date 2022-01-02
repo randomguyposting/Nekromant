@@ -10,9 +10,10 @@
   "block.nekromant.purple_dungeon_bricks_fence": "Purple Dungeon Brick Wall",
   "block.nekromant.mercury_ore": "Mercury Ore",
   "item.nekromant.mercury": "Mercury",
-  "item.nekromant.extracter": "Extracter",
-
+  "item.nekromant.extracter": "Extractor",
+  "block.nekromant.blood_candle_black": "Black Blood Candle",
   "block.nekromant.blood_lantern" : "Blood Lantern",
+  "item.nekromant.blood_drop": "Blood Drop",
 
   "itemGroup.NekromantBlocks": "Nekromant Blocks",
   "itemGroup.NekromantItems": "Nekromant Items",

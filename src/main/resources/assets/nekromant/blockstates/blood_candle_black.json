@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "candles=1,lit=false": {
+      "model": "nekromant:block/candle_one_candle_black"
+    },
+    "candles=1,lit=true": {
+      "model": "nekromant:block/candle_one_candle_lit_black"
+    },
+    "candles=2,lit=false": {
+      "model": "nekromant:block/candle_two_candles_black"
+    },
+    "candles=2,lit=true": {
+      "model": "nekromant:block/candle_two_candles_lit_black"
+    },
+    "candles=3,lit=false": {
+      "model": "nekromant:block/candle_three_candles_black"
+    },
+    "candles=3,lit=true": {
+      "model": "nekromant:block/candle_three_candles_lit_black"
+    },
+    "candles=4,lit=false": {
+      "model": "nekromant:block/candle_four_candles_black"
+    },
+    "candles=4,lit=true": {
+      "model": "nekromant:block/candle_four_candles_lit_black"
+    }
+  }
+}
