@@ -1,6 +1,7 @@
 package Nekro.nekromant.registry;
 
 
+import Nekro.nekromant.registry.custom.Extracter;
 import net.minecraft.world.item.*;
 
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +23,7 @@ public class NeItems {
     public static final RegistryObject<BlockItem> PURPLE_DUNGEON_BRICKS_FENCE = ITEMS.register("purple_dungeon_bricks_fence", () -> new BlockItem(NeBlocks.PURPLE_DUNGEON_BRICKS_FENCE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> MERCURY_ORE = ITEMS.register("mercury_ore", () -> new BlockItem(NeBlocks.MERCURY_ORE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<Item> MERCURY = ITEMS.register("mercury",() -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_ITEMS)));
+    public static final RegistryObject<Item> EXTRACTER = ITEMS.register("extracter",() -> new Extracter(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC).durability(532)));
 
     public static final RegistryObject<BlockItem> BLOOD_LANTERN = ITEMS.register("blood_lantern", () -> new BlockItem(NeBlocks.BLOOD_LANTERN.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
 
