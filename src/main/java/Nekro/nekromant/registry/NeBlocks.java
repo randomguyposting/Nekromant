@@ -32,5 +32,6 @@ public class NeBlocks {
     //dungeon misc blocks
     public static final RegistryObject<Block> BLOOD_LANTERN = BLOCKS.register("blood_lantern", () -> new LanternBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_RED).strength(0.5f, 4.0f).sound(SoundType.LANTERN).lightLevel((state) -> 8)));
     public static final RegistryObject<Block> BLOOD_CANDLE_BLACK = BLOCKS.register("blood_candle_black", () -> new BloodCandle(BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.SAND).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(CandleBlock.LIGHT_EMISSION)));
+    //public static final RegistryObject<Block> OPEN_BOOK = BLOCKS.register("open_book", () -> new OpenBook(BlockBehaviour.Properties.of(Material.BAMBOO, MaterialColor.COLOR_GRAY)));
 
 }
