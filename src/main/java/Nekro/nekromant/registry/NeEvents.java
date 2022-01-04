@@ -20,6 +20,11 @@ public class NeEvents {
                 EntityType entity = event.getEntity().getType();
                 if(player.getMainHandItem().getItem() == NeItems.EXTRACTER.get() && entity == EntityType.ZOMBIE){
                     event.getEntityLiving().spawnAtLocation(NeItems.BLOOD_DROP.get());
+                    if(!(player.getMainHandItem().getDamageValue() >= 531)) {
+                        player.getMainHandItem().setDamageValue(player.getMainHandItem().getDamageValue() + 1);
+                    } else {
+                        player.getMainHandItem().shrink(1);
+                    }
                 }
             }
         }
