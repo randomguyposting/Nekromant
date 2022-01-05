@@ -1,8 +1,10 @@
-package Nekro.nekromant.registry.custom;
+package Nekro.nekromant.items;
 
 import Nekro.nekromant.registry.NeBlocks;
+import Nekro.nekromant.registry.NeCreativeModeTab;
 import Nekro.nekromant.registry.NeItems;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
 import net.minecraft.Util;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -10,10 +12,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
@@ -25,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 
-public class Extracter extends Item {
+public class Extracter extends SwordItem {
 
 
 
@@ -35,8 +41,8 @@ public class Extracter extends Item {
                     .put(NeBlocks.MERCURY_ORE.get(), NeItems.MERCURY.get())
                     .build();
 
-    public Extracter(Properties pProperties) {
-        super(pProperties);
+    public Extracter() {
+        super(Tiers.IRON, 1, -1.4f, new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC).durability(532));
     }
 
     @Override
@@ -58,9 +64,18 @@ public class Extracter extends Item {
                 });
             }
         }
-
-
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public boolean hurtEnemy(ItemStack p_43278_, LivingEntity p_43279_, LivingEntity p_43280_) {
+        if(p_43279_.getType() == EntityType.ZOMBIE){
+            p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get());
+        }
+        p_43278_.hurtAndBreak(1, p_43280_, (p_43296_) -> {
+            p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        });
+        return true;
     }
 
     @Override
@@ -72,11 +87,7 @@ public class Extracter extends Item {
         }
         super.appendHoverText(p_41421_, p_41422_, p_41423_, p_41424_);
     }
-    @Override
-    public void setDamage(ItemStack stack, int damage) {
-        stack.getOrCreateTag().putInt("Damage", Math.max(0, 10));
-        super.setDamage(stack, damage);
-    }
+
     private boolean canExtracter(Block block) {
         return EXTRACTER_ITEM_CRAFT.containsKey(block);
     }

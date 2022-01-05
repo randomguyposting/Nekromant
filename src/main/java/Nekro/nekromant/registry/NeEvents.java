@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Nekromant.MODID)
 public class NeEvents {
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void zombiesDropBloodWhenHitUsingExtractor(LivingDamageEvent event){
         if(!event.getEntity().level.isClientSide()){
             if(event.getSource().getDirectEntity() instanceof Player){
@@ -20,13 +20,8 @@ public class NeEvents {
                 EntityType entity = event.getEntity().getType();
                 if(player.getMainHandItem().getItem() == NeItems.EXTRACTER.get() && entity == EntityType.ZOMBIE){
                     event.getEntityLiving().spawnAtLocation(NeItems.BLOOD_DROP.get());
-
-                        player.getMainHandItem().hurtAndBreak(1, player, p -> {
-                            p.broadcastBreakEvent(player.getUsedItemHand());
-
-                });
+                }
             }
         }
-    }
-}
+    }*/
 }
