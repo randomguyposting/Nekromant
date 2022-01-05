@@ -33,9 +33,6 @@ import java.util.Map;
 
 public class Extracter extends SwordItem {
 
-
-
-
     private static final Map<Block, Item> EXTRACTER_ITEM_CRAFT =
             new ImmutableMap.Builder<Block, Item>()
                     .put(NeBlocks.MERCURY_ORE.get(), NeItems.MERCURY.get())
