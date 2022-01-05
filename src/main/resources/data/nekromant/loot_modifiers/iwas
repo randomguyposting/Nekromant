@@ -1,0 +1,15 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate":{
+      "item": "nekromant:extracter"
+    }
+    },
+    {
+      "condition": "minecraft:killed_by_player",
+      "loot_table_id":"minecraft:entities/zombie"
+    }
+  ],
+  "addition": "nekromant:blood_drop"
+}//

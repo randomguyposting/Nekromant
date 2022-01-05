@@ -20,6 +20,8 @@
 
   "itemGroup.NekromantBlocks": "Nekromant Blocks",
   "itemGroup.NekromantItems": "Nekromant Items",
-  "itemGroup.NekromantMisc": "Nekromant Misc"
+  "itemGroup.NekromantMisc": "Nekromant Misc",
 
+  "tooltip.nekromant.extracter": "Right-click on mercury ore to obtain/nHit zombies to harvest their blood",
+  "tooltip.nekromant.extracter_shift": "Hold §eShift§  for more Information"
 }
