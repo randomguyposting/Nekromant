@@ -1,9 +1,11 @@
 package Nekro.nekromant;
 
+import Nekro.nekromant.world.placement.FeaturePlacements;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -41,31 +43,39 @@ public class Nekromant
         DeferredRegister<?>[] registers = {
                 NeBlocks.BLOCKS,
                 NeItems.ITEMS,
-                NeParticles.PARTICLES
-
+                NeParticles.PARTICLES,
+                //NeFeatures.FEATURES
         };
 
         for(DeferredRegister<?> register : registers){
             register.register(bus);
         }
 
-        // Register the setup method for modloading
+
+        NeFeatures.setup();
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    //setup features
+    private void init()
+    {
+        IEventBus bus = MinecraftForge.EVENT_BUS;
+        bus.addListener(FeaturePlacements::onBiomeLoadingEvent);
+    }
+
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        event.enqueueWork(() -> {
+            FeaturePlacements.registerConfiguredFeatures();
+        });
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

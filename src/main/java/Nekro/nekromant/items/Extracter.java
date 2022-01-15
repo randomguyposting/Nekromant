@@ -89,5 +89,3 @@ public class Extracter extends SwordItem {
         return EXTRACTER_ITEM_CRAFT.containsKey(block);
     }
 }
-
-

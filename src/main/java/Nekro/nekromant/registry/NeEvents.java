@@ -18,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,9 +32,9 @@ public class NeEvents {
         if(block == NeBlocks.MERCURY_ORE.get()){
             ServerLevel level;
             LivingEntity player = event.getPlayer();
-            player.getMainHandItem().hurtAndBreak(-100, player, (p_40992_) -> {
-                p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-            });
+                player.getMainHandItem().hurtAndBreak(-101, player, (p_40992_) -> {
+                    p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                });
         }
     }
 }
