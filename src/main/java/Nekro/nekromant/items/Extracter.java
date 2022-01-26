@@ -42,6 +42,7 @@ public class Extracter extends SwordItem {
         super(Tiers.IRON, 1, -1.4f, new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC).durability(532));
     }
 
+
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         if (!pContext.getLevel().isClientSide()) {

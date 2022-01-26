@@ -1,17 +1,28 @@
 package Nekro.nekromant.registry;
 
 import Nekro.nekromant.blocks.BloodCandle;
+import Nekro.nekromant.blocks.BloodLiquid;
+import Nekro.nekromant.blocks.LockedDoor;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.*;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import Nekro.nekromant.Nekromant;
 
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 public class NeBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Nekromant.MODID);
+
+    //blood fluid block
+    public static final RegistryObject<LiquidBlock> BLOOD = BLOCKS.register("virulent_mix", () -> new BloodLiquid(NeFluids.BLOOD_SOURCE, BlockBehaviour.Properties.of(Material.WATER)));
 
     //purple dungeon bricks
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS = BLOCKS.register("purple_dungeon_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
@@ -23,6 +34,9 @@ public class NeBlocks {
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_STAIRS = BLOCKS.register("purple_dungeon_bricks_stairs", () -> new StairBlock(() -> PURPLE_DUNGEON_BRICKS.get().defaultBlockState() ,BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_CHISELED_DUNGEON_BRICKS_SLAB = BLOCKS.register("purple_chiseled_dungeon_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_FENCE = BLOCKS.register("purple_dungeon_bricks_fence", () -> new WallBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
+    public static final RegistryObject<Block> CRIPPLING_DOOR = BLOCKS.register("crippling_door", () -> new LockedDoor(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
+
+
     public static final RegistryObject<Block> MERCURY_ORE = BLOCKS.register("mercury_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> DEEPRACK = BLOCKS.register("deeprack", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> DEEP_GRANITE = BLOCKS.register("deep_granite", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
