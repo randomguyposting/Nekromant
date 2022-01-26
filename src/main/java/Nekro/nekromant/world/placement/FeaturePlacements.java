@@ -16,8 +16,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class FeaturePlacements {
 
-    public static final int OVERWORLD_VEINSIZE = 5;
-    public static final int OVERWORLD_AMOUNT = 3;
+    public static final int OVERWORLD_VEINSIZE = 1;
+    public static final int OVERWORLD_AMOUNT = 10;
 
     public static PlacedFeature OVERWORLD_OREGEN;
 

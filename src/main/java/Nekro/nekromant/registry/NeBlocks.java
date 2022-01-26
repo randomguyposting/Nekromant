@@ -22,7 +22,7 @@ public class NeBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Nekromant.MODID);
 
     //blood fluid block
-    public static final RegistryObject<LiquidBlock> BLOOD = BLOCKS.register("virulent_mix", () -> new BloodLiquid(NeFluids.BLOOD_SOURCE, BlockBehaviour.Properties.of(Material.WATER)));
+    public static final RegistryObject<LiquidBlock> BLOOD = BLOCKS.register("blood", () -> new BloodLiquid(NeFluids.BLOOD_SOURCE, BlockBehaviour.Properties.of(Material.WATER)));
 
     //purple dungeon bricks
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS = BLOCKS.register("purple_dungeon_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
