@@ -1,7 +1,9 @@
-package Nekro.nekromant.registry;
+package Nekro.nekromant.events;
 
 import Nekro.nekromant.Nekromant;
 import Nekro.nekromant.blocks.MercuryOre;
+import Nekro.nekromant.registry.NeBlocks;
+import Nekro.nekromant.registry.NePlacedfeatures;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.commands.arguments.EntityArgument;
