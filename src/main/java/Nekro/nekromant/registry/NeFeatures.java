@@ -1,29 +1,17 @@
 package Nekro.nekromant.registry;
 
 import Nekro.nekromant.Nekromant;
-import Nekro.nekromant.world.placement.FeaturePlacements;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import Nekro.nekromant.world.placement.MercuryOreFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(modid = Nekromant.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class NeFeatures {
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Nekromant.MODID);
 
-    public static void setup() {
-        IEventBus bus = MinecraftForge.EVENT_BUS;
-        bus.addListener(FeaturePlacements::onBiomeLoadingEvent);
-    }
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> MERCURY_ORE = FEATURES.register(
+            "mercury_ore", () -> new MercuryOreFeature(NoneFeatureConfiguration.CODEC));
 
-    public static void init(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            FeaturePlacements.registerConfiguredFeatures();
-        });
-    }
-
-    @SubscribeEvent
-    public static void onAttributeCreate(EntityAttributeCreationEvent event) {
-    }
 }

@@ -1,6 +1,7 @@
 package Nekro.nekromant.registry;
 
 import Nekro.nekromant.Nekromant;
+import Nekro.nekromant.blocks.MercuryOre;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -16,9 +17,12 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +39,15 @@ public class NeEvents {
                 player.getMainHandItem().hurtAndBreak(-101, player, (p_40992_) -> {
                     p_40992_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
                 });
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBiomeLoadingEvent(BiomeLoadingEvent event) {
+        if (event.getCategory() == Biome.BiomeCategory.NETHER) {
+        } else if (event.getCategory() == Biome.BiomeCategory.THEEND) {
+        } else {
+            event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, NePlacedfeatures.MERCURY_ORE);
         }
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -24,6 +25,8 @@ public class LockedDoor extends DoorBlock {
 
         Item item = p_52772_.getMainHandItem().getItem();
 
+        if(p_52769_.getValue(OPEN)){return InteractionResult.PASS;}
+
         //I hate this shitload of code and might need another solution, this is embarissing
         if (NeTags.Blocks.CRIPPLING_KEY.contains(p_52769_.getBlock())) {
             if (item == NeItems.CRIPPLING_KEY.get()) {
@@ -37,6 +40,9 @@ public class LockedDoor extends DoorBlock {
         }
         return InteractionResult.PASS;
     }
+
+    @Override
+    public void neighborChanged(BlockState p_52776_, Level p_52777_, BlockPos p_52778_, Block p_52779_, BlockPos p_52780_, boolean p_52781_) {}
 
     private int getCloseSound() {
         return this.material == Material.METAL ? 1011 : 1012;

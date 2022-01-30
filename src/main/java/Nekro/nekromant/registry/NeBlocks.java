@@ -37,7 +37,7 @@ public class NeBlocks {
     public static final RegistryObject<Block> CRIPPLING_DOOR = BLOCKS.register("crippling_door", () -> new LockedDoor(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
 
 
-    public static final RegistryObject<Block> MERCURY_ORE = BLOCKS.register("mercury_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> MERCURY_ORE = BLOCKS.register("mercury_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel((state) -> 2)));
     public static final RegistryObject<Block> DEEPRACK = BLOCKS.register("deeprack", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> DEEP_GRANITE = BLOCKS.register("deep_granite", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> BURNT_GRANITE = BLOCKS.register("burnt_granite", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops()));

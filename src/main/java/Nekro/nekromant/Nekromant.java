@@ -1,11 +1,8 @@
 package Nekro.nekromant;
 
-import Nekro.nekromant.world.placement.FeaturePlacements;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -45,7 +42,7 @@ public class Nekromant
                 NeFluids.FLUIDS,
                 NeItems.ITEMS,
                 NeParticles.PARTICLES,
-                //NeFeatures.FEATURES
+                NeFeatures.FEATURES
         };
 
         for(DeferredRegister<?> register : registers){
@@ -53,13 +50,17 @@ public class Nekromant
         }
 
 
-        NeFeatures.setup();
+        //NeFeatures.setup();
+
+        this.init();
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -69,13 +70,11 @@ public class Nekromant
     private void init()
     {
         IEventBus bus = MinecraftForge.EVENT_BUS;
-        bus.addListener(FeaturePlacements::onBiomeLoadingEvent);
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() -> {
-            FeaturePlacements.registerConfiguredFeatures();
         });
     }
 
