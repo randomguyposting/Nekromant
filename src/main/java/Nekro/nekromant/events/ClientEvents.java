@@ -1,7 +1,6 @@
 package Nekro.nekromant.events;
 
 import Nekro.nekromant.Nekromant;
-import Nekro.nekromant.registry.NeBlocks;
 import Nekro.nekromant.registry.NeFluids;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;

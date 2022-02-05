@@ -3,6 +3,7 @@ package Nekro.nekromant.blocks;
 import Nekro.nekromant.registry.NeItems;
 import Nekro.nekromant.registry.NeTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -35,10 +36,18 @@ public class LockedDoor extends DoorBlock {
                 p_52770_.levelEvent(p_52772_, p_52769_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_52771_, 0);
                 p_52770_.gameEvent(p_52772_, this.isOpen(p_52769_) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, p_52771_);
                 p_52772_.getMainHandItem().shrink(1);
+                //this.getOpenSound();
                 return InteractionResult.sidedSuccess(p_52770_.isClientSide);
             }
         }
-        return InteractionResult.PASS;
+
+        p_52770_.levelEvent(p_52772_, p_52769_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_52771_, 0);
+        if(NeTags.Items.KEYS.contains(p_52772_.getMainHandItem().getItem())){
+            p_52772_.displayClientMessage(new TextComponent("Damn it, no fit"), true);
+        }else {
+            p_52772_.displayClientMessage(new TextComponent("Can only be opened with a key.."), true);
+        }
+        return InteractionResult.sidedSuccess(p_52770_.isClientSide);
     }
 
     @Override

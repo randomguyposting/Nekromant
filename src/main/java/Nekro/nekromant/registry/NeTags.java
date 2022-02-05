@@ -18,5 +18,12 @@ public class NeTags {
 
         public static final Tag.Named<Block> CRIPPLING_KEY = tag("crippling_key");
     }
+    public static class Items{
+        private static Tag.Named<Item> tag (String name){
+            return ItemTags.bind(new ResourceLocation(Nekromant.MODID, name).toString());
+        }
+
+        public static final Tag.Named<Item> KEYS = tag("keys");
+    }
 
 }

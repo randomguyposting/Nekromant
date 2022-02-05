@@ -3,6 +3,7 @@ package Nekro.nekromant.registry;
 import Nekro.nekromant.blocks.BloodCandle;
 import Nekro.nekromant.blocks.BloodLiquid;
 import Nekro.nekromant.blocks.LockedDoor;
+import Nekro.nekromant.blocks.SmallBasket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -35,7 +36,7 @@ public class NeBlocks {
     public static final RegistryObject<Block> PURPLE_CHISELED_DUNGEON_BRICKS_SLAB = BLOCKS.register("purple_chiseled_dungeon_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_FENCE = BLOCKS.register("purple_dungeon_bricks_fence", () -> new WallBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> CRIPPLING_DOOR = BLOCKS.register("crippling_door", () -> new LockedDoor(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
-
+    public static final RegistryObject<Block> PURPLE_BASKET = BLOCKS.register("purple_basket", () -> new SmallBasket(BlockBehaviour.Properties.copy(Blocks.BAMBOO)));
 
     public static final RegistryObject<Block> MERCURY_ORE = BLOCKS.register("mercury_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel((state) -> 2)));
     public static final RegistryObject<Block> DEEPRACK = BLOCKS.register("deeprack", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
