@@ -30,28 +30,20 @@ public class LockedTrapDoor extends TrapDoorBlock {
 
         if(p_57540_.getValue(OPEN)){return InteractionResult.PASS;}
 
-        //I hate this shitload of code and might need another solution, this is embarissing
-        if (NeTags.Blocks.CRIPPLING_KEY.contains(p_57540_.getBlock())) {
-            if (item == NeItems.CRIPPLING_KEY.get()) {
-
-                p_57540_ = p_57540_.cycle(OPEN);
-                p_57541_.setBlock(p_57542_, p_57540_, 2);
-                if (p_57540_.getValue(WATERLOGGED)) {
-                    p_57541_.scheduleTick(p_57542_, Fluids.WATER, Fluids.WATER.getTickDelay(p_57541_));
-                }
-                this.playSound(p_57543_, p_57541_, p_57542_, p_57540_.getValue(OPEN));
-                p_57543_.getMainHandItem().shrink(1);
+        if (Locked.isMatch(p_57540_, item)) {
+                this.doOpen(p_57540_, p_57541_, p_57542_, p_57543_);
                 return InteractionResult.sidedSuccess(p_57541_.isClientSide);
             }
-        }
+
         p_57541_.levelEvent(p_57543_, p_57540_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_57542_, 0);
-        if(NeTags.Items.KEYS.contains(p_57543_.getMainHandItem().getItem())){
+        if(Locked.isKey(item)){
             p_57543_.displayClientMessage(new TextComponent("Damn it, no fit"), true);
         }else {
             p_57543_.displayClientMessage(new TextComponent("Can only be opened with a key.."), true);
         }
         return InteractionResult.sidedSuccess(p_57541_.isClientSide);
         }
+
     @Override
     public void neighborChanged(BlockState p_52776_, Level p_52777_, BlockPos p_52778_, Block p_52779_, BlockPos p_52780_, boolean p_52781_) {}
 
@@ -61,5 +53,15 @@ public class LockedTrapDoor extends TrapDoorBlock {
 
     private int getOpenSound() {
         return this.material == Material.METAL ? 1005 : 1006;
+    }
+
+    private void doOpen(BlockState p_57540_, Level p_57541_, BlockPos p_57542_, Player p_57543_){
+        p_57540_ = p_57540_.cycle(OPEN);
+        p_57541_.setBlock(p_57542_, p_57540_, 2);
+        if (p_57540_.getValue(WATERLOGGED)) {
+            p_57541_.scheduleTick(p_57542_, Fluids.WATER, Fluids.WATER.getTickDelay(p_57541_));
+        }
+        this.playSound(p_57543_, p_57541_, p_57542_, p_57540_.getValue(OPEN));
+        p_57543_.getMainHandItem().shrink(1);
     }
 }

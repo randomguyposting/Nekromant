@@ -34,14 +34,12 @@ public class NeItems {
     //items
     public static final RegistryObject<Item> MERCURY = ITEMS.register("mercury",() -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_ITEMS)));
     public static final RegistryObject<Item> EXTRACTER = ITEMS.register("extracter",() -> new Extracter());
-    public static final RegistryObject<Item> TESTKEY = ITEMS.register("testkey", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC)));
     public static final RegistryObject<Item> CRIPPLING_KEY = ITEMS.register("crippling_key", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC)));
     public static final RegistryObject<Item> BLOOD_CHEST = ITEMS.register("blood_chest", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC)));
 
     public static final RegistryObject<BlockItem> DEEPRACK = ITEMS.register("deeprack", () -> new BlockItem(NeBlocks.DEEPRACK.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> DEEP_GRANITE = ITEMS.register("deep_granite", () -> new BlockItem(NeBlocks.DEEP_GRANITE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> BURNT_GRANITE = ITEMS.register("burnt_granite", () -> new BlockItem(NeBlocks.BURNT_GRANITE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
-
 
     public static final RegistryObject<Item> BLOOD_DROP = ITEMS.register("blood_drop", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_ITEMS)));
 

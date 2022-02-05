@@ -11,19 +11,18 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class NeTags {
     public static class Blocks {
+        public static final Tag.Named<Block> CRIPPLING_KEY = tag("crippling_key");
 
         private static Tag.Named<Block> tag (String name){
             return BlockTags.bind(new ResourceLocation(Nekromant.MODID, name).toString());
         }
-
-        public static final Tag.Named<Block> CRIPPLING_KEY = tag("crippling_key");
     }
     public static class Items{
+        public static final Tag.Named<Item> KEYS = tag("keys");
+
         private static Tag.Named<Item> tag (String name){
             return ItemTags.bind(new ResourceLocation(Nekromant.MODID, name).toString());
         }
-
-        public static final Tag.Named<Item> KEYS = tag("keys");
     }
 
 }

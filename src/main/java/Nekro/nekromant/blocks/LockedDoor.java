@@ -1,7 +1,5 @@
 package Nekro.nekromant.blocks;
 
-import Nekro.nekromant.registry.NeItems;
-import Nekro.nekromant.registry.NeTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
@@ -11,13 +9,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class LockedDoor extends DoorBlock {
+public class LockedDoor extends DoorBlock{
     public LockedDoor(Properties properties) {
         super(properties);
     }
@@ -29,21 +26,14 @@ public class LockedDoor extends DoorBlock {
 
         if(p_52769_.getValue(OPEN)){return InteractionResult.PASS;}
 
-        //I hate this shitload of code and might need another solution, this is embarissing
-        if (NeTags.Blocks.CRIPPLING_KEY.contains(p_52769_.getBlock())) {
-            if (item == NeItems.CRIPPLING_KEY.get()) {
-                p_52769_ = p_52769_.cycle(OPEN);
-                p_52770_.setBlock(p_52771_, p_52769_, 10);
-                p_52770_.levelEvent(p_52772_, p_52769_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_52771_, 0);
-                p_52770_.gameEvent(p_52772_, this.isOpen(p_52769_) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, p_52771_);
-                p_52772_.getMainHandItem().shrink(1);
-                //this.getOpenSound();
+        if (Locked.isMatch(p_52769_, item)) {
+                this.doOpen(p_52769_, p_52770_, p_52771_, p_52772_);
                 return InteractionResult.sidedSuccess(p_52770_.isClientSide);
             }
-        }
 
         p_52770_.levelEvent(p_52772_, p_52769_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_52771_, 0);
-        if(NeTags.Items.KEYS.contains(p_52772_.getMainHandItem().getItem())){
+
+        if(Locked.isKey(item)){
             p_52772_.displayClientMessage(new TextComponent("Damn it, no fit"), true);
         }else {
             p_52772_.displayClientMessage(new TextComponent("Can only be opened with a key.."), true);
@@ -60,5 +50,13 @@ public class LockedDoor extends DoorBlock {
 
     private int getOpenSound() {
         return this.material == Material.METAL ? 1005 : 1006;
+    }
+
+    private void doOpen(BlockState p_52769_, Level p_52770_, BlockPos p_52771_, Player p_52772_){
+        p_52769_ = p_52769_.cycle(OPEN);
+        p_52770_.setBlock(p_52771_, p_52769_, 10);
+        p_52770_.levelEvent(p_52772_, p_52769_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_52771_, 0);
+        p_52770_.gameEvent(p_52772_, this.isOpen(p_52769_) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, p_52771_);
+        p_52772_.getMainHandItem().shrink(1);
     }
 }
