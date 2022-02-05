@@ -2,6 +2,7 @@
 {
   "replace": false,
   "values": [
-    "nekromant:crippling_door"
+    "nekromant:crippling_door",
+    "nekromant:crippling_trapdoor"
   ]
 }

@@ -17,6 +17,9 @@
   "block.nekromant.blood_candle_black": "Black Blood Candle",
   "block.nekromant.blood_lantern" : "Blood Lantern",
   "item.nekromant.blood_drop": "Blood Drop",
+  "block.nekromant.crippling_trapdoor": "Crippling Trapdoor",
+  "item.nekromant.crippling_key": "Crippling Key",
+  "block.nekromant.crippling_door": "Crippling Door",
 
   "itemGroup.NekromantBlocks": "Nekromant Blocks",
   "itemGroup.NekromantItems": "Nekromant Items",

@@ -3,14 +3,23 @@ package Nekro.nekromant.registry;
 import Nekro.nekromant.blocks.BloodCandle;
 import Nekro.nekromant.blocks.BloodLiquid;
 import Nekro.nekromant.blocks.LockedDoor;
-import Nekro.nekromant.blocks.SmallBasket;
+import Nekro.nekromant.blocks.LockedTrapDoor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import Nekro.nekromant.blocks.SmallBasket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -37,6 +46,10 @@ public class NeBlocks {
     public static final RegistryObject<Block> PURPLE_DUNGEON_BRICKS_FENCE = BLOCKS.register("purple_dungeon_bricks_fence", () -> new WallBlock(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> CRIPPLING_DOOR = BLOCKS.register("crippling_door", () -> new LockedDoor(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_DUNGEON_BRICKS.get())));
     public static final RegistryObject<Block> PURPLE_BASKET = BLOCKS.register("purple_basket", () -> new SmallBasket(BlockBehaviour.Properties.copy(Blocks.BAMBOO)));
+    public static final RegistryObject<Block> CRIPPLING_TRAPDOOR = BLOCKS.register("crippling_trapdoor", () -> new LockedTrapDoor(BlockBehaviour.Properties.copy(NeBlocks.PURPLE_CHISELED_DUNGEON_BRICKS.get())));
+    public static final RegistryObject<Block> BLOOD_CHEST = BLOCKS.register("blood_chest", ()-> new ChestBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD), () -> {
+        return BlockEntityType.CHEST;}));
+
 
     public static final RegistryObject<Block> MERCURY_ORE = BLOCKS.register("mercury_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel((state) -> 2)));
     public static final RegistryObject<Block> DEEPRACK = BLOCKS.register("deeprack", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).strength(0.5f, 6.0f).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
@@ -49,4 +62,9 @@ public class NeBlocks {
     public static final RegistryObject<Block> BLOOD_CANDLE_BLACK = BLOCKS.register("blood_candle_black", () -> new BloodCandle(BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.SAND).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(CandleBlock.LIGHT_EMISSION)));
     //public static final RegistryObject<Block> OPEN_BOOK = BLOCKS.register("open_book", () -> new OpenBook(BlockBehaviour.Properties.of(Material.BAMBOO, MaterialColor.COLOR_GRAY)));
 
+
+    //ore registration for generation
+   // public static final Tags.IOptionalNamedTag<Block> MERCURY_ORE = BlockTags.createOptional(new ResourceLocation(Nekromant.MODID, "mercury_ore"));
+  //  public static final Tags.IOptionalNamedTag<Item> MERCURY_ORE = ItemTags.createOptional(new ResourceLocation(Nekromant.MODID, "mercury_ore"));
 }
+

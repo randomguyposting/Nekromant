@@ -26,6 +26,7 @@ public class NeItems {
     public static final RegistryObject<BlockItem> PURPLE_DUNGEON_BRICKS_STAIRS = ITEMS.register("purple_dungeon_bricks_stairs", () -> new BlockItem(NeBlocks.PURPLE_DUNGEON_BRICKS_STAIRS.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> PURPLE_DUNGEON_BRICKS_FENCE = ITEMS.register("purple_dungeon_bricks_fence", () -> new BlockItem(NeBlocks.PURPLE_DUNGEON_BRICKS_FENCE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> CRIPPLING_DOOR = ITEMS.register("crippling_door", () -> new BlockItem(NeBlocks.CRIPPLING_DOOR.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
+    public static final RegistryObject<BlockItem> CRIPPLING_TRAPDOOR = ITEMS.register("crippling_trapdoor", () -> new BlockItem(NeBlocks.CRIPPLING_TRAPDOOR.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> PURPLE_BASKET = ITEMS.register("purple_basket", () -> new BlockItem(NeBlocks.PURPLE_BASKET.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
 
     public static final RegistryObject<BlockItem> MERCURY_ORE = ITEMS.register("mercury_ore", () -> new BlockItem(NeBlocks.MERCURY_ORE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
@@ -35,6 +36,7 @@ public class NeItems {
     public static final RegistryObject<Item> EXTRACTER = ITEMS.register("extracter",() -> new Extracter());
     public static final RegistryObject<Item> TESTKEY = ITEMS.register("testkey", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC)));
     public static final RegistryObject<Item> CRIPPLING_KEY = ITEMS.register("crippling_key", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC)));
+    public static final RegistryObject<Item> BLOOD_CHEST = ITEMS.register("blood_chest", () -> new Item(new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_MISC)));
 
     public static final RegistryObject<BlockItem> DEEPRACK = ITEMS.register("deeprack", () -> new BlockItem(NeBlocks.DEEPRACK.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));
     public static final RegistryObject<BlockItem> DEEP_GRANITE = ITEMS.register("deep_granite", () -> new BlockItem(NeBlocks.DEEP_GRANITE.get(), new Item.Properties().tab(NeCreativeModeTab.NEKROMANT_BLOCKS)));

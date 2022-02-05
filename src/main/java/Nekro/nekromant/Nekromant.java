@@ -1,9 +1,14 @@
 package Nekro.nekromant;
 
+import Nekro.nekromant.world.gen.ModOreGeneration;
+//import Nekro.nekromant.world.placement.FeaturePlacements;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -18,6 +23,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import Nekro.nekromant.registry.*;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -29,6 +35,8 @@ public class Nekromant
     private static final Logger LOGGER = LogManager.getLogger();
 
     public Nekromant() {
+
+
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -77,7 +85,15 @@ public class Nekromant
     {
         event.enqueueWork(() -> {
         });
+        // some preinit code
+        LOGGER.info("HELLO FROM PREINIT");
+        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+
+
+
     }
+
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
@@ -92,6 +108,10 @@ public class Nekromant
                 map(m->m.messageSupplier().get()).
                 collect(Collectors.toList()));
     }
+
+
+        // Register the deferred registry
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
