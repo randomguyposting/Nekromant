@@ -30,6 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class Extracter extends SwordItem {
 
@@ -51,9 +52,10 @@ public class Extracter extends SwordItem {
             Block blockClicked = level.getBlockState(positionClicked).getBlock();
 
             if (canExtracter(blockClicked)) {
+                Random random = new Random();
                 ItemEntity entityItem = new ItemEntity(level,
                         positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
-                        new ItemStack(EXTRACTER_ITEM_CRAFT .get(blockClicked), 1));
+                        new ItemStack(EXTRACTER_ITEM_CRAFT .get(blockClicked), random.nextInt(1, 5)));
 
                 level.destroyBlock(positionClicked, false);
                 level.addFreshEntity(entityItem);

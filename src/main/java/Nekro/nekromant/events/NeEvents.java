@@ -4,6 +4,11 @@ import Nekro.nekromant.Nekromant;
 import Nekro.nekromant.blocks.MercuryOre;
 import Nekro.nekromant.registry.NeBlocks;
 import Nekro.nekromant.registry.NePlacedfeatures;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.storage.WorldData;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -22,12 +27,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.io.File;
+import java.io.IOException;
 
 
 @Mod.EventBusSubscriber(modid = Nekromant.MODID)
@@ -50,6 +59,24 @@ public class NeEvents {
         } else if (event.getCategory() == Biome.BiomeCategory.THEEND) {
         } else {
             event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, NePlacedfeatures.MERCURY_ORE);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerJoinEvent(PlayerEvent.PlayerLoggedInEvent event){
+        Logger logger = LogManager.getLogger();
+        WorldData worldData = event.getPlayer().getServer().getWorldData();
+
+        try {
+            File playerFile = new File("saves\\"+worldData.getLevelName()+"\\playerdata\\"+event.getPlayer().getStringUUID() + ".json");
+            if (playerFile.createNewFile()) {
+                logger.info("File for:" + event.getPlayer() + " successfully created");
+            } else {
+                logger.info("File for:" + event.getPlayer() + " already exists");
+            }
+        } catch (IOException e){
+            logger.info("An error while trying to create a file for:"+event.getPlayer()+" occurred");
+            e.printStackTrace();
         }
     }
 }

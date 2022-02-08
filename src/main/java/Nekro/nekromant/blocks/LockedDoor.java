@@ -2,6 +2,7 @@ package Nekro.nekromant.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -34,9 +35,9 @@ public class LockedDoor extends DoorBlock{
         p_52770_.levelEvent(p_52772_, p_52769_.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), p_52771_, 0);
 
         if(Locked.isKey(item)){
-            p_52772_.displayClientMessage(new TextComponent("Damn it, no fit"), true);
+            p_52772_.displayClientMessage(new TranslatableComponent("tooltip.nekromant.no_fit"), true);
         }else {
-            p_52772_.displayClientMessage(new TextComponent("Can only be opened with a key.."), true);
+            p_52772_.displayClientMessage(new TranslatableComponent("tooltip.nekromant.need_key"), true);
         }
         return InteractionResult.sidedSuccess(p_52770_.isClientSide);
     }
