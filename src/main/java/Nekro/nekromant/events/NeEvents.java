@@ -1,46 +1,31 @@
 package Nekro.nekromant.events;
 
 import Nekro.nekromant.Nekromant;
-import Nekro.nekromant.blocks.MercuryOre;
 import Nekro.nekromant.registry.NeBlocks;
 import Nekro.nekromant.registry.NePlacedfeatures;
-import net.minecraft.world.level.WorldGenLevel;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.*;
+import com.google.gson.JsonArray;
 import net.minecraft.world.level.storage.WorldData;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import com.mojang.brigadier.arguments.FloatArgumentType;
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.commands.arguments.ParticleArgument;
-import net.minecraft.commands.arguments.coordinates.Vec3Argument;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.commands.ParticleCommand;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 
 @Mod.EventBusSubscriber(modid = Nekromant.MODID)
 public class NeEvents {
+
     @SubscribeEvent
     public static void breakingMercuryOreRestoresDurability(BlockEvent.BreakEvent event){
         Block block = event.getState().getBlock();
@@ -53,6 +38,7 @@ public class NeEvents {
         }
     }
 
+    //code might suck
     @SubscribeEvent
     public static void onBiomeLoadingEvent(BiomeLoadingEvent event) {
         if (event.getCategory() == Biome.BiomeCategory.NETHER) {
@@ -63,20 +49,54 @@ public class NeEvents {
     }
 
     @SubscribeEvent
-    public static void onPlayerJoinEvent(PlayerEvent.PlayerLoggedInEvent event){
-        Logger logger = LogManager.getLogger();
-        WorldData worldData = event.getPlayer().getServer().getWorldData();
+    public static boolean onPlayerMobKillEvent(LivingDeathEvent event) throws IOException {
+        if(!event.getEntity().level.isClientSide) {
+            //did a player kill the mob?
+            if(event.getSource().getDirectEntity() instanceof Player) {
 
-        try {
-            File playerFile = new File("saves\\"+worldData.getLevelName()+"\\playerdata\\"+event.getPlayer().getStringUUID() + ".json");
-            if (playerFile.createNewFile()) {
-                logger.info("File for:" + event.getPlayer() + " successfully created");
-            } else {
-                logger.info("File for:" + event.getPlayer() + " already exists");
+                //info for file location
+                Player player = ((Player) event.getSource().getDirectEntity());
+                WorldData worldData = event.getEntity().getServer().getWorldData();
+
+                //file location
+                final String fileLocation = "saves/"+worldData.getLevelName()+"/playerdata/nekromant/"+player.getStringUUID() + ".json";
+                File file = new File(fileLocation);
+
+                //create gson object and builder, setPrettyPrinting makes the json more readable
+                GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
+                Gson gson = builder.create();
+
+                if(file.exists()) {
+                    //read file and write to array
+                    com.google.gson.stream.JsonReader reader = new com.google.gson.stream.JsonReader(new FileReader(fileLocation));
+                    JsonArray values = gson.fromJson(reader, new TypeToken<JsonArray>() {}.getType());
+
+                    //check if mob is already on list
+                    JsonElement jsonElement = new JsonPrimitive(event.getEntity().getEncodeId());
+                    if(values.contains(jsonElement)){return true;}
+
+                    values.add(event.getEntity().getEncodeId());
+
+                    //write to file
+                    FileWriter writer = new FileWriter(file);
+                    gson.toJson(values, writer);
+                    writer.close();
+                } else {
+                    //create dictionary if it doesn't exist already
+                    new File("saves/"+worldData.getLevelName()+"/playerdata/nekromant/").mkdirs();
+
+                    //add first killed mob to array which is later written to json
+                    JsonArray values = new JsonArray();
+                    values.add(event.getEntity().getEncodeId());
+
+                    //write to file
+                    FileWriter writer = new FileWriter(file);
+                    gson.toJson(values, writer);
+                    writer.close();
+                }
             }
-        } catch (IOException e){
-            logger.info("An error while trying to create a file for:"+event.getPlayer()+" occurred");
-            e.printStackTrace();
         }
+        return true;
     }
+
 }

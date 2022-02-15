@@ -23,6 +23,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import Nekro.nekromant.registry.*;
 
+import java.io.File;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -86,12 +87,7 @@ public class Nekromant
         event.enqueueWork(() -> {
         });
         // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
-
-
-
+        LOGGER.info("Nekromant starting");
     }
 
 

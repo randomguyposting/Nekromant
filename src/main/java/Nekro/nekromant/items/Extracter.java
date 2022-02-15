@@ -3,6 +3,7 @@ package Nekro.nekromant.items;
 import Nekro.nekromant.registry.NeBlocks;
 import Nekro.nekromant.registry.NeCreativeModeTab;
 import Nekro.nekromant.registry.NeItems;
+import Nekro.nekromant.registry.NeTags;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import net.minecraft.Util;
@@ -69,8 +70,14 @@ public class Extracter extends SwordItem {
 
     @Override
     public boolean hurtEnemy(ItemStack p_43278_, LivingEntity p_43279_, LivingEntity p_43280_) {
-        if(p_43279_.getType() == EntityType.ZOMBIE){
-            p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get());
+        if(NeTags.Entities.DROPS_BLOOD.contains(p_43279_.getType())){
+            Random random = new Random();
+            switch(random.nextInt(1, 5)){
+                case 1: p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get()); break;
+                case 2: p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get()); p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get()); break;
+                case 3: p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get()); p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get()); p_43279_.spawnAtLocation(NeItems.BLOOD_DROP.get()); break;
+                default: break;
+            }
         }
         p_43278_.hurtAndBreak(1, p_43280_, (p_43296_) -> {
             p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
